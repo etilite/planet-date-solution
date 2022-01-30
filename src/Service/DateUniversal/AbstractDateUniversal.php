@@ -15,12 +15,11 @@ abstract class AbstractDateUniversal implements DateUniversalInterface
 
     public function setDate(string $date): void
     {
-        if(preg_match("/\d{4}-\d{2}-\d{2}/", $date)) {
-            $this->date = $date;
-        } else {
-            throw new \InvalidArgumentException('Invalid date format');
+        if(!preg_match("/\d{4}-\d{2}-\d{2}/", $date)) {
+            throw new \InvalidArgumentException(sprintf('Invalid date format "%s"', $date));
         }
 
+        $this->date = $date;
     }
 
     public function getDate(): string

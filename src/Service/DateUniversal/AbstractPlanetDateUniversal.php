@@ -10,6 +10,7 @@ abstract class AbstractPlanetDateUniversal extends AbstractDateUniversal
     public function getDateInDays(): int
     {
         $periods = $this->splitDateString($this->date);
+        
         return $periods['days'] + $periods['months'] * $this->getDaysInMonth() + $periods['years'] * $this->getDaysInYear();
     }
 
@@ -36,6 +37,7 @@ abstract class AbstractPlanetDateUniversal extends AbstractDateUniversal
     protected function splitDateString(string $date): array
     {
         $dateArr = explode('-', $date);
+
         return [
             'years' => $this->convertPeriod($dateArr[0]),
             'months' => $this->convertPeriod($dateArr[1]),
