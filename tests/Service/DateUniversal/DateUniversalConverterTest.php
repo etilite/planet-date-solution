@@ -106,8 +106,7 @@ class DateUniversalConverterTest extends TestCase
      */
     public function provideDateUniversal(): iterable
     {
-        foreach (['0001-01-01', '2001-01-01', '0001-02-01'] as $date)
-        {
+        foreach (['0001-01-01', '2001-01-01', '0001-02-01'] as $date) {
             yield [
                 'date' => $date,
                 'from' => new EarthDateUniversal($date),
